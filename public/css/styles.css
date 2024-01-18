@@ -1,0 +1,96 @@
+#map {
+    height: 400px;
+    width: 100%;
+}
+
+body {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background-color: #f8f9fa;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #007bff;
+}
+
+label {
+    font-weight: bold;
+}
+
+#cityInput {
+    width: 100%; 
+    padding: 8px;
+    margin-bottom: 10px;
+}
+
+button {
+    margin-top: 10px;
+}
+
+#currentWeatherResult,
+#extendedForecastList {
+    margin-top: 20px;
+}
+
+.card-title {
+    color: #007bff;
+}
+
+.card-body {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+}
+
+
+#currentWeatherContent {
+    display: flex;
+    justify-content: space-between;
+}
+
+.card-module {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+.icon {
+    fill: #FF8700;
+    stroke: #FF8700;
+    stroke-width: 9.6;
+    width: 62px;
+    height: 62px;
+}
+
+.temp {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.sub {
+    font-size: 16px;
+}
+
+.sub,
+.detail-item div:last-child {
+    color: #6c757d;
+}
+
+.detail-item {
+    display: flex;
+    justify-content: space-between;
+}
+
+#forecastList li {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    padding: 20px;
+}
+
+@media (max-width: 767px) {
+    #cityInput {
+        width: 80%; 
+    }
+}
