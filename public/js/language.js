@@ -9,6 +9,7 @@ const translations = {
       welcomeMessage: "Welcome, guest!",
       currentWeather: "Current Weather",
       applicationName: "Weather App",
+      mainPage: "Main Page",
       history: "History",
       about: "About",
       charts: "Charts",
@@ -27,6 +28,7 @@ const translations = {
       welcomeMessage: "Добро пожаловать, гость!",
       currentWeather: "Текущая Погода",
       applicationName: "Погода",
+      mainPage: "Главная",
       history: "История",
       about: "Про автора",
       charts: "Чарты",
@@ -41,7 +43,7 @@ const translations = {
       extendedForecastFourteenDaysTitle: "Расширенный прогноз (14 дней)",
       cityInfoTitle: "Информация о городе"
     }
-};
+}; 
 
 function updateTexts(lang) {
     const welcomeMessageElement = document.querySelector('.welcomeMessage');
@@ -49,6 +51,9 @@ function updateTexts(lang) {
 
     const applicationNameElement = document.querySelector('.applicationName');
     if (applicationNameElement) applicationNameElement.textContent = translations[lang].applicationName;
+
+    const mainPage = document.querySelector('.nav-link.mainPage');
+    if (mainPage) mainPage.textContent = translations[lang].mainPage;
 
     const historyElement = document.querySelector('.nav-link.history');
     if (historyElement) historyElement.textContent = translations[lang].history;

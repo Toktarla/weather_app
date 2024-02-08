@@ -75,7 +75,7 @@ const translations = {
     ru: {
         pageTitle: "Прогноз Погоды на Графиках",
         navbarBrand: "Погода",
-        mainPageLink: "Главная Страница",
+        mainPageLink: "Главная",
         historyLink: "История",
         aboutLink: "Про автора",
         chartsLink: "Чарты",

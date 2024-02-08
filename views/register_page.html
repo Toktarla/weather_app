@@ -1,129 +1,127 @@
 <!DOCTYPE html>
 <html>
-<head>
-<title>Weather App</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-<link href="//fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i" rel="stylesheet">
-<link rel="stylesheet" href="/css/register_page.css" media="all" type="text/css">
+  <head>
+    <title>Weather App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script type="application/x-javascript">
+      addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); }
+    </script>
+    <link
+      href="//fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="/css/register_page.css"
+      media="all"
+      type="text/css"
+    />
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
 
-<style>
-    .error {
-    color: red;
-    
-    }
+    <style>
+      .error {
+        color: red;
+      }
 
-    .language-selector {
-                position: absolute;
-                top: 10px;
-                right: 10px;
-                z-index: 1000;
-            }
+      .language-selector {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        z-index: 1000;
+      }
 
-            #languageSelect {
-                padding: 5px;
-                border-radius: 5px;
-                border: 1px solid #ccc;
-                background-color: #fff;
-                font-size: 14px;
-            }
+      #languageSelect {
+        padding: 5px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        background-color: #fff;
+        font-size: 14px;
+      }
+    </style>
+  </head>
 
-</style>
-</head>
-
-
-<body>
-
+  <body>
     <div class="main-w3layouts wrapper">
-        <div class="language-selector">
-            <select id="languageSelect" onchange="changeLanguage()">
-                <option value="en">English</option>
-                <option value="ru">Русский</option>
-            </select>
-        </div>
-        <h1 id="signupTitle"></h1>
-        <div class="main-agileinfo">
-            <div class="agileits-top">
-                <form action="/signup" method="post">
-                    
-                    <input id="username" class="text" type="text" name="Username" placeholder="" required="">
-                    <div id="usernameError" class="error"></div>
-                    
-                    <input id="email" class="text email" type="email" name="email" placeholder="Email" required="">
-                    <div id="emailError" class="error"></div>
-                    
-                    <input id="password" class="text" type="password" name="password" placeholder="Password" required="">
-                    <div id="passwordError" class="error"></div>
-                    
-                    <input id="confirm_password" class="text w3lpass" type="password" name="confirm_password" placeholder="Confirm Password" required="">
-                    <div id="passwordError" class="error"></div>
+      <div class="language-selector">
+        <select id="languageSelect" onchange="changeLanguage()">
+          <option value="en">English</option>
+          <option value="ru">Русский</option>
+        </select>
+      </div>
+      <h1 id="signupTitle"></h1>
+      <div class="main-agileinfo">
+        <div class="agileits-top">
+          <form action="/signup" method="post">
+            <input
+              id="username"
+              class="text"
+              type="text"
+              name="Username"
+              placeholder=""
+              required=""
+            />
+            <div id="usernameError" class="error"></div>
 
-                    <div class="wthree-text">
-                        <label class="anim">
-                            <input type="checkbox" class="checkbox" required="">
-                            <span id="termsConditions"></span>
-                        </label>
-                        <div class="clear"> </div>
-                    </div>
-                    
-                    <input id="signupButton" type="submit" value="">
-                </form>
-                <p id="loginLink"></p>
+            <input
+              id="email"
+              class="text email"
+              type="email"
+              name="email"
+              placeholder="Email"
+              required=""
+            />
+            <div id="emailError" class="error"></div>
+
+            <input
+              id="password"
+              class="text"
+              type="password"
+              name="password"
+              placeholder="Password"
+              required=""
+            />
+            <div id="passwordError" class="error"></div>
+
+            <input
+              id="confirm_password"
+              class="text w3lpass"
+              type="password"
+              name="confirm_password"
+              placeholder="Confirm Password"
+              required=""
+            />
+            <div id="passwordError" class="error"></div>
+
+            <div class="wthree-text">
+              <label class="anim">
+                <input type="checkbox" class="checkbox" required="" />
+                <span id="termsConditions"></span>
+              </label>
+              <div class="clear"></div>
             </div>
+
+            <input id="signupButton" type="submit" value="" />
+          </form>
+          <p id="loginLink"></p>
         </div>
-        <ul class="colorlib-bubbles">
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-        </ul>
+      </div>
+      <ul class="colorlib-bubbles">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
     </div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const preferredLanguage = localStorage.getItem('preferredLanguage') || 'en';
-            const signupTitleElement = document.getElementById('signupTitle');
-            const usernameInputElement = document.getElementById('username');
-            const termsConditionsElement = document.getElementById('termsConditions');
-            const loginLinkElement = document.getElementById('loginLink');
-            const signupButtonElement = document.getElementById('signupButton');
-            
-            const languageSelectElement = document.getElementById('languageSelect');
-            languageSelectElement.value = preferredLanguage;
- 
-            if (preferredLanguage === 'en') {
-                signupTitleElement.textContent = 'Sign Up';
-                usernameInputElement.placeholder = 'Username';
-                termsConditionsElement.textContent = 'I Agree To The Terms & Conditions';
-                loginLinkElement.innerHTML = 'Already have an Account? <a href="/login"> Login Now!</a>';
-                signupButtonElement.value = 'Sign Up';
-
-                
-            } else {
-                signupTitleElement.textContent = 'Регистрация';
-                usernameInputElement.placeholder = 'Имя пользователя';
-                termsConditionsElement.textContent = 'Я согласен с Условиями и положениями';
-                loginLinkElement.innerHTML = 'Уже есть аккаунт? <a href="/login"> Войти сейчас!</a>';
-                signupButtonElement.value = 'Регистрация';
-
-
-            }
-        });
-
-        function changeLanguage() {
-            const selectedLanguage = document.getElementById('languageSelect').value;
-            localStorage.setItem('preferredLanguage', selectedLanguage); 
-            
-            location.reload();
-        }
-    </script>
     <script src="js/reg_validation.js"></script>
-</body>
+    <script src="js/register.js"></script>
+
+  </body>
 </html>

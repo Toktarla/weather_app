@@ -1,0 +1,55 @@
+body {
+    padding: 20px;
+    background-color: #f4f7fc;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.dashboard-header {
+    margin-bottom: 30px;
+    color: #333;
+}
+.btn-custom {
+    margin-right: 5px;
+    border-radius: 20px;
+    padding: .375rem .75rem;
+    font-size: .875rem;
+    line-height: 1.5;
+}
+@media (max-width: 576px) {
+    .btn-custom {
+        margin-bottom: 5px; 
+        margin-right: 0; 
+    }
+    .table-actions {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+.table-custom {
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+.table-custom thead {
+    background-color: #007bff;
+    color: #fff;
+}
+.table-custom th, .table-custom td {
+    vertical-align: middle;
+}
+.status-badge {
+    padding: 5px 10px;
+    color: #fff;
+    border-radius: 15px;
+    font-size: 0.8em;
+}
+.status-admin {
+    background-color: #28a745;
+}
+.status-user {
+    background-color: #6c757d;
+}
+.icon-button {
+    color: #fff;
+    cursor: pointer;
+}
