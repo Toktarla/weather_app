@@ -5,7 +5,7 @@ const ejs = require('ejs');
 const path = require('path');
 const axios = require('axios');
 const PDFDocument = require('pdfkit');
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 const saltRounds = 10;
 
 const { connectDB } = require('./config/db.js'); 
