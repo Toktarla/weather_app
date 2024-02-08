@@ -427,7 +427,7 @@ app.get('/city-info', async (req, res) => {
         }
     }
 });
-app.listen(process.env.port || port, () => {
+app.listen(process.env.PORT || port, () => {
     console.log(`Server is running on http://localhost:${port}`);
 });
 

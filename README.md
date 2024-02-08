@@ -84,3 +84,4 @@ The app defaults to displaying weather information for London on the first visit
 ### Additional Libraries
 - Utilized EJS for templating.
 - Implemented Bootstrap 5 for UI enhancement.
+- Fav Icon
