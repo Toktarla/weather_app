@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Toktar Sultan</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        body {
+    background-color: #f0f2f5;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.about-page {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    animation: fadeInAnimation ease 3s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+.profile-img {
+    border-radius: 50%;
+    animation: rotateImage 10s infinite linear;
+    width: 400px;
+    height: 400px; /* Adjust size as needed */
+}
+
+@keyframes fadeInAnimation {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+
+
+.info-animation {
+    opacity: 0;
+    animation: fadeInUp ease 2s forwards;
+    animation-delay: 1s;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/weather"><span id="applicationName"></span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/weather"><span id="mainPage"></span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/history"><span id="history"></span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/about"><span id="about"></span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/charts"><span id="charts"></span></a>
+                    </li>
+                </ul>
+
+                <div class="d-flex align-items-center">
+                    <span class="navbar-text text-white mr-5">
+                        <div id="userInfo" class="d-flex align-items-center">
+                            <% if (username) { %>
+                                <p><i class="fas fa-user me-2"></i><%= username %></p>
+                            <% } else { %>
+                                <p class="welcomeMessage"><i class="fas fa-user me-2"></i>Welcome</p>
+                            <% } %>
+                        </div>
+                    </span>
+                    
+                    <div class="language-selector">
+                        <select id="languageSelect" onchange="changeLanguage()">
+                            <option value="en">English</option>
+                            <option value="ru">Русский</option>
+                        </select>
+                    </div>
+                </div>
+
+                <form action="/signout" method="post" style="height: 58px;">
+                    <button type="submit" class="btn btn-danger ml-3"><span id="signOut"></span></button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+
+    <div class="d-flex justify-content-center align-items-center min-vh-100">
+
+<div class="container about-page mt-5">
+    <div class="row">
+        <div class="col-lg-6 d-flex justify-content-center">
+            <img src="assets/toktar.jpg" alt="Toktar Sultan" class="profile-img">
+        </div>
+        <div class="col-lg-6 d-flex flex-column justify-content-center">
+            <h1 id="profileName"></h1>
+            <p class="lead" id="profileDescription"></p>
+            <div class="info-animation">
+                <p id="projectDescription"></p>
+            </div>
+            
+        </div>
+    </div>
+</div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+    const preferredLanguage = localStorage.getItem('preferredLanguage') || 'en';
+    document.getElementById('languageSelect').value = preferredLanguage;
+    updateTexts(preferredLanguage);
+});
+   
+const translations = {
+    en: {
+        welcomeMessage: "Welcome,",
+        applicationName: "Weather App",
+        mainPage: "Main Page",
+        history: "History",
+        about: "About",
+        charts: "Charts",
+        signOut: "Sign Out",
+
+        profileName: "Toktar Sultan",
+        profileDescription: "Studying at Astana IT University, Group SE 2202",
+        projectDescription: "I am the creator of this project for assignment 3 Backend Course. Here I integrated Weather APIs, PDF Downloader, Authentication, Multilanguage Support, Charts to see the weather difference between days"
+    },
+    ru: {
+        welcomeMessage: "Добро пожаловать,",
+        applicationName: "Погода",
+        mainPage: "Главная",
+        history: "История",
+        about: "Про автора",
+        charts: "Чарты",
+        signOut: "Выйти",
+        profileName: "Токтар Султан",
+        profileDescription: "Учусь в Астана IT Университете, группа SE 2202",
+        projectDescription: "Я создатель этого проекта для задания 3 курса Backend. Здесь я интегрировал Weather APIs, PDF Downloader, аутентификацию, мультиязычную поддержку, графики для просмотра разницы в погоде между днями"
+    }
+};
+
+function updateTexts(lang) {
+    const applicationNameElement = document.getElementById('applicationName');
+      if (applicationNameElement) applicationNameElement.textContent = translations[lang].applicationName;
+  
+      const mainPageElement = document.getElementById('mainPage');
+      if (mainPageElement) mainPageElement.textContent = translations[lang].mainPage;
+  
+      const historyElement = document.getElementById('history');
+      if (historyElement) historyElement.textContent = translations[lang].history;
+  
+      const aboutElement = document.getElementById('about');
+      if (aboutElement) aboutElement.textContent = translations[lang].about;
+  
+      const chartsElement = document.getElementById('charts');
+      if (chartsElement) chartsElement.textContent = translations[lang].charts;
+  
+      const signOutElement = document.getElementById('signOut');
+      if (signOutElement) signOutElement.textContent = translations[lang].signOut;
+
+    document.getElementById('mainPage').textContent = translations[lang].mainPage;
+    document.getElementById('history').textContent = translations[lang].history;
+    document.getElementById('about').textContent = translations[lang].about;
+    document.getElementById('charts').textContent = translations[lang].charts;
+
+    document.getElementById('profileName').textContent = translations[lang].profileName;
+    document.getElementById('profileDescription').textContent = translations[lang].profileDescription;
+    document.getElementById('projectDescription').textContent = translations[lang].projectDescription;
+    
+}
+
+function changeLanguage() {
+    const selectedLanguage = document.getElementById('languageSelect').value;
+    localStorage.setItem('preferredLanguage', selectedLanguage); 
+    updateTexts(selectedLanguage);
+}
+
+</script>
+</body>
+</html>
