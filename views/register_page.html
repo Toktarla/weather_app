@@ -94,7 +94,10 @@
             const termsConditionsElement = document.getElementById('termsConditions');
             const loginLinkElement = document.getElementById('loginLink');
             const signupButtonElement = document.getElementById('signupButton');
-
+            
+            const languageSelectElement = document.getElementById('languageSelect');
+            languageSelectElement.value = preferredLanguage;
+ 
             if (preferredLanguage === 'en') {
                 signupTitleElement.textContent = 'Sign Up';
                 usernameInputElement.placeholder = 'Username';
