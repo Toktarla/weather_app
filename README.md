@@ -15,7 +15,23 @@ Before you begin, ensure you have the following installed:
 ```cd weather-app```
 
 Install dependencies below like:
-```npm install express axios``` etc
+```npm install express axios``` etc or add dependencies below into package.json like below:
+
+"dependencies": {
+    "axios": "^1.6.7",
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "express-session": "^1.18.0",
+    "mongodb": "^6.3.0",
+    "mongoose": "^8.1.1",
+    "node-fetch": "^2.6.1",
+    "pdfkit": "^0.14.0"
+  }
+
+And write in the  cmd ```npm install```
+
 
 ## Dependencies
 
